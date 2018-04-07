@@ -1,18 +1,20 @@
 package com.example;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/*"}, loadOnStartup = 1)
-public class HelloWorldServlet extends HttpServlet 
-{
-  @Override 
-  public void doGet(HttpServletRequest request, HttpServletResponse response) 
-      throws IOException
-  {
-      response.getOutputStream().print("Hello Docker");
-  }
+import java.util.Random;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/foo")
+public class HelloWorldServlet {
+
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public String foo() {
+        return "<b>Hello, World!</b>" + new Random().nextLong();
+    }
+
 }

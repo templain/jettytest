@@ -19,6 +19,7 @@ repositories {
 // In this section you declare the dependencies for your production and test code
 dependencies {
     compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.+'
+    compile 'org.glassfish.jersey.inject:jersey-hk2:2.+'
     testCompile 'junit:junit:4.+'
 }
 
